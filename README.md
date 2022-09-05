@@ -30,8 +30,9 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 5. [bedtools](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 		
 ## Usage:
-** From fastq raw data to topological associated domains annotation **
+*From fastq raw data to topologically associated domains annotation*. 
 
+Run the following scripts within the repository folder:
 ```
 ./setupTriforce.sh
 ./runJuicer.sh <pathToYourFastaFiles>
