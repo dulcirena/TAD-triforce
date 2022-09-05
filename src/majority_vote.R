@@ -253,12 +253,3 @@ thresholdBox <-
 htmlwidgets::saveWidget(ggplotly(thresholdBox)
                         , file = paste0(outdir,
                                         "domainSizes.html"))
-
-#all %>% filter(sizes >= 1500*1e3)
-
-# save svg for docs !
-
-# NEXT:----------------------------
-#       finalOrography.sh         |
-#       selectOrography.sh        |
-# **********************************
