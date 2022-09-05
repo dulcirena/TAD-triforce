@@ -183,10 +183,3 @@ thresholdsBox <- ggplotly(
 htmlwidgets::saveWidget(thresholdsBox
                         , file = paste0(outdir,
                                         "avgSCregion_boxplot.html"))
-
-
-#NEXT:---------------------------
-#       majority_vote.R         %
-#       finalOrography.sh       %
-#                               %
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
