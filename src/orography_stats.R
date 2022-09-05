@@ -1,4 +1,4 @@
-head(topologyInfo)
+library(plotly)
 statsTop<- bind_rows(read.csv("../../Structural change/dmel_10kb/wd_mountains.bed",
                               sep = "\t", header = FALSE) %>% 
                               mutate(species = "Dmel", resolution = "10kb"),
@@ -32,11 +32,6 @@ valleySizes <- statsTop %>%
                 filter(region_type == "Valley") %>%
                 group_by(species, resolution) %>%
                 summarise(quantile(size, 0.50)/1e3)
-
-
-
-library(plotly)
-
 
 ggplot(statsTop %>% filter(region_type == "Valley"),
                 aes(y = size/1e3, fill = resolution)) +
