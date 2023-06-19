@@ -191,12 +191,7 @@ write_tsv(as_bed(hills_raw, "Hills"),
 structureRanges$chr <- as.factor(structureRanges$chr)
 structureRanges$chr <- factor(structureRanges$chr, 
                               levels = chrRefSeq,
-                              # levels = c("NT_033779.5", "NT_033778.4",
-                              #            "NT_037436.4", "NT_033777.3",
-                              #            "NC_004353.4", "NC_004354.4"),
-                              labels = c("2L", "2R",
-                                         "3L", "3R",
-                                         "4", "X"))
+                              labels = chrRefSeq)
 
 thresholdsBox <- ggplotly(
                     
