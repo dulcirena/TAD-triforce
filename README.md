@@ -37,15 +37,15 @@ To run the complete workflow for TAD annotation:
 
 ```
 ./triforce.sh  <WORK_DIR> \
-		<FILES_DIR> <TAD_SEP_SCORE> \
+		<FILES_FASTQ_DIR> <TAD_SEP_SCORE> \
 		<RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> \
-		<FILE_ARROWHEAD_TADS> <HICEXPLORER_TADS>    
+		<FILE_ARROWHEAD_TADS> <FILE_HICEXPLORER_TADS>    
 ```
 
 *Description:*
 
 - **WORK_DIR**: Directory where the out/ directory will be created.
-- **FILED_DIR**: Directory where the input files are.
+- **FILES_FASTQ_DIR**: Directory where the fastq files are (in progress, write any path).
 - **TAD_SEP_SCORE**: TAD separation score file computed with HiCExplorer. Should end with tad_score.bm
 - **RESOLUTION_KB**: Resolution of the matrix in kb.
 - **PROJECT_NAME**: ID for the project (do not use spaces)
