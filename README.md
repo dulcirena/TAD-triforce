@@ -29,6 +29,7 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 ## Usage:
 *From fastq raw data to topologically associated domains annotation*. 
 
+*Compute consensus TAD calling with TRIFORCE* 
 To run the complete workflow for TAD annotation:
 
 ```
