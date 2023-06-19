@@ -42,7 +42,7 @@ To run the complete workflow for TAD annotation:
 		<FILE_ARROWHEAD_TADS> <HICEXPLORER_TADS>    
 ```
 
-Description:
+*Description:*
 
 - **WORK_DIR**: Directory where the out/ directory will be created.
 - **FILED_DIR**: Directory where the input files are.
@@ -55,15 +55,20 @@ Description:
 
 See the file src/run_test.sh for a working example.
 
-Output:
+*Output:*
 
 All the outputs are stored in the directory WORK_DIR/out/
+
 - **structure_CHR.html**: An interactive file per chromosome (CHR) showing the breakpoints of the TAD separation score (TAD-SS) according to the structural change analysis (SCA). SCA breaks the TAD-SS in genomic regions that exhibit similar contact trends. The width of each breakpoint (lightgreen) represent its confidence interval. 
-- **confidenceIntervalCHR.tsv**: The coordinates of the 5% and 95% CI for each breakpoint. The coordinate of the 50% CI is used in the downstream analysis.
+- **confidenceIntervalCHR.tsv**: The coordinates of the 5% and 95% CI for each breakpoint for each CHR. The coordinate of the 50% CI is used in the downstream analysis.
 - **avgSCregion_boxplot.html**: Boxplot showing the distribution of the average TAD separation score in each SCA-region. Only the regions above the overall median are kept for downstream analysis.
 - **domainSizes_files**: Distribution of TAD legth in the different steps of the analysis. Usually the TADs computed by the majority vote script produces longer TADs because it merges the regions of consecutive TADs.
 - **orography_out.bed**: All classified regions. Includes a color column to be use for visualization in HiCExplorer.
 - **mountains_out.bed**: High-condifence TADs
 - **hills_out.bed**: Fuzzy regions
 - **valleys_out.bed**: Out of TAD regions
+- **region_type_count.pdf** : A plot showing the number of regions in each class (Majority Vote, Fuzzy or Out of TAD). This is made before the refinement of majority vote areas as high-confidence TADs. 
+- **size_class.pdf**: A plot showing the total length of the genome classified as High-confidence TADs, TADs between fuzzy regions, Fuzzy regions and Out of TAD regions. 
+
+
 
