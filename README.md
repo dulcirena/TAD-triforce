@@ -19,14 +19,11 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 3. [R](https://cran.r-project.org/)
 4. R packages:
 	- tidyverse
-	- ggplot2	
-	- plotly
-	- ggpubr
 	- dplyr
-	- plotly
+	- strucchangeRcpp
+	- plotly		
+	- ggpubr
 	- scico
-	- moonBook
-	- webr
 5. [bedtools](https://bedtools.readthedocs.io/en/latest/content/installation.html)
 		
 ## Usage:
