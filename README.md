@@ -38,7 +38,7 @@ To run the complete workflow for TAD annotation:
 ```
 ./triforce.sh  <WORK_DIR> \
 		<FILES_FASTQ_DIR> <TAD_SEP_SCORE> \
-		<RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> \
+		<RESOLUTION_KB> <PROJECT_NAME> <DISMISS_CHR> \
 		<FILE_ARROWHEAD_TADS> <FILE_HICEXPLORER_TADS>    
 ```
 
@@ -49,7 +49,7 @@ To run the complete workflow for TAD annotation:
 - **TAD_SEP_SCORE**: TAD separation score file computed with HiCExplorer. Should end with tad_score.bm
 - **RESOLUTION_KB**: Resolution of the matrix in kb.
 - **PROJECT_NAME**: ID for the project (do not use spaces)
-- **DISSMISS_CHR**: The name of the chromosome you want to dissmiss during the analysis.
+- **DISMISS_CHR**: The name of the chromosome you want to dismiss during the analysis.
 - **FILE_ARROWHEAD**: Arrowhead's TAD calling file (e.g. 10000_blocks)
 - **HICEXPLORER_ARROWHEAD**: HiCExplorer's TAD calling file. Should end with domains.bed
 
