@@ -1,10 +1,18 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Parameters --------------------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-wkpath <- "/homes/bierdepot/dulce/Documents/Master/master-evo-in-3D/TRIFORCE/TAD-triforce/test"
+wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/test"
 setwd(wkpath)
-outdir <- "/homes/bierdepot/dulce/Documents/Master/master-evo-in-3D/TRIFORCE/TAD-triforce/test/out"
+outdir <- "/homes/bierdepot/dulce/Documents/MasterDul//master-evo-in-3D/TRIFORCE/TAD-triforce/test/out"
 species <- "D. melanogaster"
+args <- commandArgs(trailingOnly = TRUE)
+
+# Working directories
+wkpath <- args[1]
+outdir <- args[2]
+setwd(wkpath)
+species <- args[3]
+
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Libraries ---------------------------------------------------------------
@@ -183,7 +191,7 @@ df <- newOrography %>%
         group_by(V4, mTypeLabel) %>% 
         summarise(s = sum(size))
 
-df
+#df
 total <- sum(df$s)
 
 sizePlot <- ggplot(df, aes(x = V4, y = s*100/total, fill = mTypeLabel)) +
@@ -198,7 +206,7 @@ sizePlot <- ggplot(df, aes(x = V4, y = s*100/total, fill = mTypeLabel)) +
                 coord_flip() +
                 theme_pubclean() + 
                 theme(legend.position = "right")
-sizePlot
+#sizePlot
 ggsave(sizePlot, 
        filename = paste0(outdir, "/size_class.pdf"),
        device = "pdf",

@@ -36,7 +36,8 @@ cd $curdir
 
 echo "wkdir:" $wkdir
 echo "datadir:" $datadir
-echo 
+echo
+
 #----------------------------------------------------------------
 echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 0: Dir setup"                            |
@@ -76,8 +77,15 @@ echo "▲ ▲  Step 4: High confidence TADs"
 echo "----------------------------------------------------"
 
 # Re-define fuzzy and out-of-TAD regions 
+#echo pt1
 ./4_finalOrography.sh ${wkdir}
 
+# Select high confidence TADs, i.e., those bounded by at least
+# one out of TAD region:
+
+Rscript 5_selectOrography.R $wkdir \
+			    ${wkdir}/out \
+                            $projectName
+
 echo "🪰 Hey! Listen!"
-echo "Thank you for using the TRIFORCE."
-echo "  Please cite us :) "
+echo " ... If TRIFORCE was useful for your research please cite:"
