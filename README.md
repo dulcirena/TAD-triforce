@@ -63,7 +63,7 @@ All the outputs are stored in the directory WORK_DIR/out/
 - **confidenceIntervalCHR.tsv**: The coordinates of the 5% and 95% CI for each breakpoint for each CHR. The coordinate of the 50% CI is used in the downstream analysis.
 - **avgSCregion_boxplot.html**: Boxplot showing the distribution of the average TAD separation score in each SCA-region. Only the regions above the overall median are kept for downstream analysis.
 - **domainSizes_files**: Distribution of TAD legth in the different steps of the analysis. Usually the TADs computed by the majority vote script produces longer TADs because it merges the regions of consecutive TADs.
-- **orography_out.bed**: All classified regions. Includes a color column to be use for visualization in HiCExplorer.
+- **orography_out.bed**: All classified regions. Includes a color column for visualization in HiCExplorer.
 - **mountains_out.bed**: High-condifence TADs
 - **hills_out.bed**: Fuzzy regions
 - **valleys_out.bed**: Out of TAD regions
