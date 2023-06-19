@@ -32,8 +32,19 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 To run the complete workflow for TAD annotation:
 
 ```
-./triforce.sh  <WORK_DIR> <FILE_DIR>  <PATH_TAD_SEP_SCORE> <RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> <ARROHEAD_TADS> <HICEXPLORER_TADS>    ```
-- **WORK_DIR**
-- *<FILE_DIR>*
-- *<PATH_TAD_SEP_SCORE>*
-<RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> <ARROHEAD_TADS> <HICEXPLORER_TADS>   * 
+./triforce.sh  <WORK_DIR> \
+		<FILES_DIR> <TAD_SEP_SCORE> \
+		<RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> \
+		<FILE_ARROWHEAD_TADS> <HICEXPLORER_TADS>    
+```
+
+Description:
+
+- **WORK_DIR**: Directory where the out/ directory will be created.
+- **FILED_DIR**: Directory where the input files are.
+- **TAD_SEP_SCORE**: TAD separation score file computed with HiCExplorer. Should end with tad_score.bm
+- **RESOLUTION_KB**: Resolution of the matrix in kb.
+- **PROJECT_NAME**: ID for the project (do not use spaces)
+- **DISSMISS_CHR**: The name of the chromosome you want to dissmiss during the analysis.
+- **FILE_ARROWHEAD**: Arrowhead's TAD calling file (e.g. 10000_blocks)
+- **HICEXPLORER_ARROWHEAD**: HiCExplorer's TAD calling file. Should end with domains.bed
