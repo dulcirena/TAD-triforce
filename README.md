@@ -52,3 +52,18 @@ Description:
 - **DISSMISS_CHR**: The name of the chromosome you want to dissmiss during the analysis.
 - **FILE_ARROWHEAD**: Arrowhead's TAD calling file (e.g. 10000_blocks)
 - **HICEXPLORER_ARROWHEAD**: HiCExplorer's TAD calling file. Should end with domains.bed
+
+See the file src/run_test.sh for a working example.
+
+Output:
+
+All the outputs are stored in the directory WORK_DIR/out/
+- **structure_CHR.html**: An interactive file per chromosome (CHR) showing the breakpoints of the TAD separation score (TAD-SS) according to the structural change analysis (SCA). SCA breaks the TAD-SS in genomic regions that exhibit similar contact trends. The width of each breakpoint (lightgreen) represent its confidence interval. 
+- **confidenceIntervalCHR.tsv**: The coordinates of the 5% and 95% CI for each breakpoint. The coordinate of the 50% CI is used in the downstream analysis.
+- **avgSCregion_boxplot.html**: Boxplot showing the distribution of the average TAD separation score in each SCA-region. Only the regions above the overall median are kept for downstream analysis.
+- **domainSizes_files**: Distribution of TAD legth in the different steps of the analysis. Usually the TADs computed by the majority vote script produces longer TADs because it merges the regions of consecutive TADs.
+- **orography_out.bed**: All classified regions. Includes a color column to be use for visualization in HiCExplorer.
+- **mountains_out.bed**: High-condifence TADs
+- **hills_out.bed**: Fuzzy regions
+- **valleys_out.bed**: Out of TAD regions
+
