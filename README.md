@@ -29,10 +29,7 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 ## Usage:
 *From fastq raw data to topologically associated domains annotation*. 
 
-Run the following scripts within the repository folder:
+To run the complete workflow for TAD annotation:
+
 ```
-./setupTriforce.sh
-./runJuicer.sh <pathToYourFastaFiles>
-./runHiCExplorer.sh <pathToYourFastaFiles>
-./triforce.sh
-```
+./triforce.sh  <WORK_DIR> <FILE_DIR>  <PATH_TAD_SEP_SCORE> <RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> <ARROHEAD_TADS> <HICEXPLORER_TADS>    ```
