@@ -32,4 +32,4 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 To run the complete workflow for TAD annotation:
 
 ```
-./triforce.sh  <WORK_DIR> <FILE_DIR>  <PATH_TAD_SEP_SCORE> <RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> <ARROHEAD_TADS> <HICEXPLORER_TADS>    ```
+./triforce.sh  <WORK_DIR> <FILE_DIR>  <PATH_TAD_SEP_SCORE> <RESOLUTION_KB> <PROJECT_NAME> <DISSMISS_CHR> <ARROHEAD_TADS> <HICEXPLORER_TADS>    
