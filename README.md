@@ -30,7 +30,7 @@ git clone https://github.com/dulcirena/TAD-triforce.git
 ### From fastq raw data to topologically associated domains using Arrowhead and HiCExplorer
 *Work in progress* 
 
-### Compute consensus TAD calling using TRIFORCE workflow
+### Compute consensus TADs using _the_ TRIFORCE
 Once you have ran Arrowhead and HiCExplorer to obtain the their corresponding TAD annotation files, it is time to use TRIFORCE to obtain a consensus set of high-confidence TADs. 
 
 To run the complete workflow for TAD annotation:
