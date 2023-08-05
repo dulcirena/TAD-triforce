@@ -43,7 +43,7 @@ echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 0: Dir setup"                            |
 echo "----------------------------------------------------"
 
-./0_set_dir_tree.sh $wkdir $datadir
+#./0_set_dir_tree.sh $wkdir $datadir
 
 echo "Outputs can be found at:"  ${wkdir}/out
 echo "Input data taken from:" ${wkdir}/data
@@ -53,35 +53,38 @@ echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 1: Structural change analysis"
 echo "----------------------------------------------------"
 
-Rscript 1_structure_analysis.R $wkdir \
-				${wkdir}/out \
-				$tssFile \
-				$res
+#Rscript 1_structure_analysis.R $wkdir \
+#				${wkdir}/out \
+#				$tssFile \
+#				$res
+
 echo
 echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 2: Initial categorization of regions"
 echo "----------------------------------------------------"
 
-Rscript 2_merge_breakpoints.R $wkdir ${wkdir}/out \
-				$projectName $discardChr
+#Rscript 2_merge_breakpoints.R $wkdir ${wkdir}/out \
+#				$projectName $discardChr
 
 echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 3: Majority vote"
 echo "----------------------------------------------------"
 
-Rscript 3_majority_vote.R $wkdir ${wkdir}/out \
-				$arrowFile $hicfFile
+#Rscript 3_majority_vote.R $wkdir ${wkdir}/out \
+#				$arrowFile $hicfFile
 
 echo " ▲   TRIFORCE -------------------------------------- "
 echo "▲ ▲  Step 4: High confidence TADs"
 echo "----------------------------------------------------"
 
-# Re-define fuzzy and out-of-TAD regions 
-#echo pt1
-./4_finalOrography.sh ${wkdir}
+echo "▲---- Re-classify acccording to majority voting"
+
+#./4_finalOrography.sh ${wkdir}
 
 # Select high confidence TADs, i.e., those bounded by at least
 # one out of TAD region:
+
+echo "▲---- Select high-confidence TADs"
 
 Rscript 5_selectOrography.R $wkdir \
 			    ${wkdir}/out \

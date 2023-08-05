@@ -3,24 +3,24 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   args <- commandArgs(trailingOnly = TRUE)
   #print("hello wordl!")
-  
+
   # Working directories
   wkpath <- args[1]
   outdir <- args[2]
   setwd(wkpath)
-  
+
   pathA <- args[3]
   pathH <- args[4]
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Parameters --------------------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-#  wkpath <- "C:/Users/dival/Documents/Triforce/test/"
-#  setwd(wkpath)
-#  outdir <- "C:/Users/dival/Documents/Triforce/test/out/"
-#  pathA <- "./data/eye/dmel_eye_5k_arrowhead.bedpe"
-#  pathH <- "./data/eye/Dmel_eye_5kb_thres0.01_delta0.01_fdr_domains.bed" # *domains.bed
+ #  
+ # wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/5kb"
+ # setwd(wkpath)
+ # outdir <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/5kb/out"
+ # pathA <- "arrowhead_tads"
+ # pathH <- "dmel_Merge_TAD_5kb_domains.bed" # *domains.bed
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Libraries ---------------------------------------------------------------
@@ -62,7 +62,7 @@ as_bed_MV <- function(df){
 # Upload data
 A <- read_tsv(pathA) %>%
           select(chr1, x1, x2) %>% 
-          rename("chr" = chr1,"start" = x1, "end" = x2)
+          rename("chr" = chr1,"start" = x1, "end" = x2) 
 
 # H: HiCExplorer
 H <- read.csv(pathH,

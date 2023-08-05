@@ -15,23 +15,22 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Arguments  --------------------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-# wkpath <- "C:/Users/dival/Documents/Triforce/test"
-# setwd(wkpath)
-# outdir <- "C:/Users/dival/Documents/Triforce/test/out/"
-# pathTSS <- "C:/Users/dival/Documents/Triforce/test/data/eye/Dmel_eye_5kb_thres0.01_delta0.01_fdr_tad_score.bm"
-# hvalue <- 20 # set to 10 for 10kb resolution or to 20 for 5kb res.
+#wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/10kb"
+#setwd(wkpath)
+#outdir <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/10kb/out"
+#pathTSS <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/10kb/dmel_Merge_TAD_10kb_tad_score.bm"
+#hvalue <- 10 # set to 10 for 10kb resolution or to 20 for 5kb res.
 
 args <- commandArgs(trailingOnly = TRUE)
-#print("hello wordl!")
-
-
+# #print("hello wordl!")
+# 
+# 
 # Working directories
 wkpath <- args[1]
 outdir <- args[2]
 setwd(wkpath)
-
-# Path to the TAD separation score (tad_score.bm) file
+# 
+# # Path to the TAD separation score (tad_score.bm) file
 pathTSS <- args[3]
 
 # The parameter h is the minimum of bins that should
@@ -57,7 +56,7 @@ library(dplyr)
 library(strucchangeRcpp)
 library(plotly)
 library(lubridate)
-library(tictoc)
+#library(tictoc)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Data loading  -----------------------------------------------------------
@@ -74,7 +73,6 @@ dfTADSep <- read.csv(pathTSS,
 dfTADSep <- dfTADSep[-1,]
 dfTADSep$metric <- apply(dfTADSep[,c(4:10)],1, sum)/7
 
-tic()
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Change point dectection -------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,8 +211,6 @@ for (chr in chrList){
 }
 
 print("STRUCTURAL CHANGE ANALYSIS DONE --------------")
-toc()
-
 
 #NEXT:---------------------------
 #       merge_breakpoints.R       |

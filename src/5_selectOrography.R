@@ -1,10 +1,12 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# Parameters --------------------------------------------------------------
+# Arguments  --------------------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/test"
-setwd(wkpath)
-outdir <- "/homes/bierdepot/dulce/Documents/MasterDul//master-evo-in-3D/TRIFORCE/TAD-triforce/test/out"
-species <- "D. melanogaster"
+# 
+# wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/10kb"
+# setwd(wkpath)
+# outdir <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/10kb/out"
+# species <- "Dmel"
+# 
 args <- commandArgs(trailingOnly = TRUE)
 
 # Working directories
@@ -146,7 +148,7 @@ write_tsv(interestRegions,
 
 # Split into out-of-tads and high-confidence tads
 wellDefinedValleys <- interestRegions %>% filter(V4 == "Valley_1")
-wellDefinedMountains <- interestRegions %>% filter(V4 == "Majority_3")
+wellDefinedMountains <- interestRegions %>% filter(V4 == "Mountain_2")
 
 write_tsv(wellDefinedValleys,
          paste0(outdir,"/wd_valleys.bed"),
@@ -201,11 +203,13 @@ sizePlot <- ggplot(df, aes(x = V4, y = s*100/total, fill = mTypeLabel)) +
                                   labels = c("Out of TAD", "Fuzzy",
                                              "Between fuzzy regions", "High confidence TADs")) +
                 labs(x = "Region class", 
-                     y = paste0("% genome in class \n (Total length ", as.character(total/1e6)," Gb)"),
+                     y = paste0("% genome in class"),
                      fill = "Class refinement") + 
                 coord_flip() +
                 theme_pubclean() + 
                 theme(legend.position = "right")
+
+#y = paste0("% genome in class \n (Total length ", as.character(total/1e6)," Gb)"),
 #sizePlot
 ggsave(sizePlot, 
        filename = paste0(outdir, "/size_class.pdf"),

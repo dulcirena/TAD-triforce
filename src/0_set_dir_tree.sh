@@ -5,6 +5,6 @@
 
 wdir=$1
 mkdir ${1}/out
-mkdir ${1}/data
-ln -s ${2}/* ${1}/data/.
+#mkdir ${1}/data
+#ln -s ${2}/* ${1}/data/.
 

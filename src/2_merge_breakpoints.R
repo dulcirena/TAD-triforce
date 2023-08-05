@@ -21,19 +21,13 @@ cat(args, sep = "\n")
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Parameters --------------------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#wkpath <- "C:/Users/dival/Documents/Triforce/test/"
-#setwd(wkpath)
-#outdir <- "C:/Users/dival/Documents/Triforce/test/out/"
-#species <- "Dmel_eye"
-#discardChr <- "chr4"
-
-
-# outdir <- "dmel_5kb/"
-# species <- "D. melanogster"
-# 
+# wkpath <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/5kb"
+# setwd(wkpath)
+# outdir <- "/homes/bierdepot/dulce/Documents/MasterDul/master-evo-in-3D/TRIFORCE/TAD-triforce/Replicas/Dmel/5kb/out"
+# species <- "Dmel"
 # discardChr <- "NC_004353.4"
-#                # Dsim: "NC_029796.1"
-# 
+            # Dsim: "NC_029796.1"
+
 # # for Dsim:
 # # chrRefSeq <- c("NT_479533.1","NT_479534.1","NT_479535.1",
 # #                "NT_479536.1","NC_029796.1","NC_029795.1") 
@@ -62,10 +56,15 @@ get_chr_name_refseq <- function(x){
 }
 
 get_chr_name <- function(x){
-  xSplit <- unlist(str_split(unlist(str_split(x,"myData_"))[2],"[.]"))
-  #chrName <- paste0(xSplit[1], ".", xSplit[2])
+  x <- outDFiles[j]
+  xSplit <- tail(unlist(strsplit(x, "/")), n=1) %>%
+                str_replace("myData_", "") %>%
+                str_replace(".tsv", "")
   
   return(xSplit[1])
+  # xSplit <- unlist(str_split(unlist(str_split(x,"myData_"))[2],"[.]"))
+  # #chrName <- paste0(xSplit[1], ".", xSplit[2])
+  # 
 }
 
 make_range <- function(df, chr){
@@ -109,20 +108,24 @@ outBFiles <- list.files(outdir, pattern = "mybreakpoints_", full.names = TRUE)
 outDFiles <- list.files(outdir, pattern = "myData_", full.names = TRUE)
 f <- length(outBFiles)
 
-# Unlist creates a vector of strings. The names of the chr are in the
-# even index of such vector. 
-chrRefSeq <- unlist(strsplit(outBFiles, "_"))[seq(1:f) %% 2 == 0]
+# Obtain the names of the chromosomes: 
+# chrRefSeq <- unlist(strsplit(outBFiles, "/"))
+# n <- length(chrRefSeq)/f
+# chrRefSeq <- str_replace(chrRefSeq[seq(1:(f*n)) %% n == 0], "mybreakpoints_", "")
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create genomic ranges from breakpoints ----------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 structureRanges <- data.frame()
+chrRefSeq <- c()
 
 for (j in 1:f){
   breakpoints <- read.csv(outBFiles[j])
   data <- read_tsv(outDFiles[j], show_col_types = FALSE)
   chr <- get_chr_name(outDFiles[j])
+  if(!(chr %in% chrRefSeq))
+    chrRefSeq <- c(chrRefSeq, chr)
   
   n <- dim(breakpoints)[1]
   
